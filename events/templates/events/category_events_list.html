@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form method="GET">
+  {{filter.form|crispy}}
+  <button type="submit" class="btn btn-info">Filter</button>
+</form>
+<br>
+ <div class="row">
+ {% for event in filter.qs %}
+   <div class="col-lg-4 col-md-6 col-12">
+       <div class="card" style="width: 18rem;">
+        <img src="{% static 'events/images/allstars.jpg' %}" class="card-img-top" alt="event image">
+        <div class="card-body">
+          <h5 class="card-title">{{event.title}}</h5>
+          <p class="card-text">{{event.summary}}</p>
+          <a href="{% url 'events:single' category=event.category.name pk=event.pk %}" class="btn btn-primary">Event detail</a>
+        </div>
+      </div>
+      <br>
+   </div>
+ {% endfor %}
+ </div>
+ {% endblock %}

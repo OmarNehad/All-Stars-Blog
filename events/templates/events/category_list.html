@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+ {% block content %}
+ <div class="row">
+ {% for category in category_list %}
+   <div class="col-lg-4 col-md-6 col-12">
+       <div class="card" style="width: 18rem;">
+        <img src="{% static 'events/images/allstars.jpg' %}" class="card-img-top" alt="event image">
+        <div class="card-body">
+          <h5 class="card-title">{{category.name}}</h5>
+          <p class="card-text">{{category.description}}</p>
+          <a href="{% url 'events:category_events' category=category.name %}" class="btn btn-primary">Events <span class="badge badge-light">{{ category.event_set.count }}</span></a>
+        </div>
+      </div>
+      <br>
+   </div>
+ {% endfor %}
+ </div>
+ {% endblock %}

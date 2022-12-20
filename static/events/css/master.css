@@ -1,0 +1,57 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* margin: 0; */
+    /* bottom = footer height */
+    /* padding: 25px; */
+    /* background-color: #f1faee; */
+    background-color: white;
+}
+
+footer {
+    background-color: #0275d8;
+    position:absolute;
+    color: white;
+    /* left: 0; */
+    bottom: 0;
+    width: 100%;
+    /* overflow: hidden; */
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+/* .myform{
+  margin: 50px;
+  margin-left: 1200px;
+
+} */
+
+/* .myevent{
+  border: dotted #0275d8 2px;
+  padding: 10px;
+} */
+
+
+.carousel-item, .cimg{
+  height: 600px;
+
+}
+
+
+#content{
+  padding: 100px;
+  padding-bottom: 200px;
+}
+
+.myimg{
+  padding-bottom: 10px;
+}
+
+.highlight{
+  background-color: yellow;
+}

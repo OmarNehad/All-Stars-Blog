@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="myevent">
+  <strong><h1>{{event.title}}</h1></strong>
+  <h5>{{event.body}}</h5>
+  <h2>Gallery:</h2>
+  {% for im in event.images.all %}
+    <img src="{{im.image.url}}" class="rounded img-fluid myimg" alt="Responsive image">
+  {% empty %}
+    <p>No images posted.</p>
+  {% endfor %}
+
+  {% for vid in event.videos.all %}
+  <video width="320" height="240" controls>
+    <source src="{{vid.video.url}}" type="video/mp4">
+    <source src="{{vid.video.url}}" type="video/ogg">
+    Your browser does not support the video tag.
+  </video>
+  {% empty %}
+    <p>No videos posted.</p>
+  {% endfor %}
+  <p>{{event.created_date}}</p>
+</div>
+
+
+<hr>
+{% for comment in event.comments.all %}
+ <h5>User: {{comment.name}}</h5>
+ <h5>Email Adress:{{comment.email_adress}}</h5>
+ <p>Comment: {{ comment.body | linebreaks }}</p>
+{% empty %}
+    <p>No comments posted.</p>
+ {% endfor %}
+ <hr>
+
+  <form method="post" style="margin-top: 1.3em;">
+    {{ comment_form | crispy }}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+  </form>
+
+{% endblock %}
