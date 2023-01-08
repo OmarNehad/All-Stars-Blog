@@ -1,2 +1,2 @@
 # All-Stars-Blog
-Django blog demo website 
+demo blog website made with Django
